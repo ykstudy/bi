@@ -1,9 +1,30 @@
 package main
 
-const (
-	ApiKey = "AkDndrooaGt7EpnC64Iov7DaBix4IFnqW4HZ9nbSAau7MGDlOax7lYcngGHaWCxxxxxxEEEEzxGp55kSCWyKmHeZ1Snwa4vyE00jDWqQS7OYRXF7EoW2FA412gA7itMcklrVz"
-	Secret = "AkDndrooaGt7EpnC64Iov7DaBix4IFnqW4HZ9nbSAau7MGDlOax7lYcngGHaWCxxxxxxEEEEzxGp55kSCWyKmHeZ1Snwa4vyE00jDWqQS7OYRXF7EoW2FA412gA7itMcklrVz"
+import (
+	binance "bicore"
+	"context"
+	"fmt"
 )
+
+const (
+	ApiKey   = "xxx"
+	Secret   = "xxx"
+	ProxyUrl = "xxx"
+)
+
+var client *binance.Client
+
+func init() {
+	client = binance.NewProxiedClient(ApiKey, Secret, ProxyUrl)
+
+	timeOffset, err := client.NewSetServerTimeService().Do(context.Background())
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	client.TimeOffset = timeOffset
+}
 
 func main() {
 	//Ticker()
@@ -12,5 +33,5 @@ func main() {
 	//FuturesOrder()
 	//WalletBalance()
 	//Account()
-	ExchangeInfo()
+	//ExchangeInfo()
 }

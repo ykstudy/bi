@@ -400,6 +400,11 @@ func NewFuturesClient(apiKey, secretKey string) *futures.Client {
 	return futures.NewClient(apiKey, secretKey)
 }
 
+// NewFuturesProxiedClient initialize client for futures API
+func NewFuturesProxiedClient(apiKey, secretKey, proxyUrl string) *futures.Client {
+	return futures.NewProxiedClient(apiKey, secretKey, proxyUrl)
+}
+
 // NewDeliveryClient initialize client for coin-M futures API
 func NewDeliveryClient(apiKey, secretKey string) *delivery.Client {
 	return delivery.NewClient(apiKey, secretKey)

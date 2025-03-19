@@ -1,15 +1,12 @@
 package main
 
 import (
-	binance "bicore"
 	"context"
 	"encoding/json"
 	"fmt"
 )
 
 func ExchangeInfo() {
-	client := binance.NewClient(ApiKey, Secret)
-	client.Debug = true
 
 	res, err := client.NewExchangeInfoService().
 		Symbol("BTCUSDT").

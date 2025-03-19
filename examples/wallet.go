@@ -3,12 +3,9 @@ package main
 import (
 	"context"
 	"fmt"
-
-	"bicore"
 )
 
 func WalletBalance() {
-	client := binance.NewClient(ApiKey, Secret)
 
 	quoteAsset := "USDT"
 

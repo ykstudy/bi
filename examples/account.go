@@ -4,12 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-
-	"bicore"
 )
 
 func Account() {
-	client := binance.NewClient(ApiKey, Secret)
 
 	res, err := client.NewGetAccountService().
 		OmitZeroBalances(true).

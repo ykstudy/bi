@@ -10,9 +10,6 @@ import (
 
 func SpotOrder() {
 	binance.UseTestnet = true
-	apiKey := ""
-	secret := ""
-	client := binance.NewClient(apiKey, secret)
 
 	symbol := "BTCUSDT"
 	side := binance.SideTypeSell
@@ -32,16 +29,14 @@ func SpotOrder() {
 
 func FuturesOrder() {
 	futures.UseTestnet = true
-	apiKey := ""
-	secret := ""
-	client := binance.NewFuturesClient(apiKey, secret)
+	futuresClient := binance.NewFuturesProxiedClient(ApiKey, Secret, ProxyUrl)
 
 	symbol := "LTCUSDT"
 	side := futures.SideTypeSell
 	orderType := futures.OrderTypeMarket
 	quantity := "0.1"
 
-	res, err := client.NewCreateOrderService().Symbol(symbol).Side(side).
+	res, err := futuresClient.NewCreateOrderService().Symbol(symbol).Side(side).
 		Type(orderType).Quantity(quantity).PositionSide(futures.PositionSideTypeLong).Do(context.Background())
 
 	if err != nil {
