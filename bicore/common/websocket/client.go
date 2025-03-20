@@ -64,7 +64,7 @@ func (c *client) debug(format string, v ...interface{}) {
 // NewClient init client
 func NewClient(conn Connection) (Client, error) {
 	client := &client{
-		logger:                      log.New(os.Stderr, "Binance-golang ", log.LstdFlags),
+		logger:                      log.New(os.Stderr, "bi-golang ", log.LstdFlags),
 		conn:                        conn,
 		connMu:                      sync.Mutex{},
 		reconnectSignal:             make(chan struct{}, 1),

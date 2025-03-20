@@ -2,6 +2,7 @@ package main
 
 import (
 	"crypto/tls"
+	"example/config"
 	"io"
 	"net/http"
 	"net/url"
@@ -25,7 +26,8 @@ func TestHttpApi(t *testing.T) {
 }
 
 func TestHttpProxyApi(t *testing.T) {
-	proxy, err := url.Parse(ProxyUrl)
+	conf := config.NewConfig()
+	proxy, err := url.Parse(conf.B.ProxyUrl)
 	if err != nil {
 		t.Fatal(err)
 	}

@@ -2,20 +2,21 @@ package main
 
 import (
 	binance "bicore"
+	"bicore/futures"
 	"context"
+	"example/config"
 	"fmt"
 )
 
-const (
-	ApiKey   = "xxx"
-	Secret   = "xxx"
-	ProxyUrl = "xxx"
-)
-
 var client *binance.Client
+var futuresClient *futures.Client
 
 func init() {
-	client = binance.NewProxiedClient(ApiKey, Secret, ProxyUrl)
+
+	conf := config.NewConfig()
+	client = binance.NewProxiedClient(conf.B.ApiKey, conf.B.SecretKey, conf.B.ProxyUrl)
+
+	futuresClient = futures.NewProxiedClient(conf.B.ApiKey, conf.B.SecretKey, conf.B.ProxyUrl)
 
 	timeOffset, err := client.NewSetServerTimeService().Do(context.Background())
 	if err != nil {
@@ -24,6 +25,7 @@ func init() {
 	}
 
 	client.TimeOffset = timeOffset
+	futuresClient.TimeOffset = timeOffset
 }
 
 func main() {

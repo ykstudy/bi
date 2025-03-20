@@ -366,9 +366,9 @@ func NewClient(apiKey, secretKey string) *Client {
 		SecretKey:  secretKey,
 		KeyType:    common.KeyTypeHmac,
 		BaseURL:    getAPIEndpoint(),
-		UserAgent:  "Binance/golang",
+		UserAgent:  "bi/golang",
 		HTTPClient: http.DefaultClient,
-		Logger:     log.New(os.Stderr, "Binance-golang ", log.LstdFlags),
+		Logger:     log.New(os.Stderr, "bi-golang ", log.LstdFlags),
 	}
 }
 
@@ -387,22 +387,17 @@ func NewProxiedClient(apiKey, secretKey, proxyUrl string) *Client {
 		SecretKey: secretKey,
 		KeyType:   common.KeyTypeHmac,
 		BaseURL:   getAPIEndpoint(),
-		UserAgent: "Binance/golang",
+		UserAgent: "bi/golang",
 		HTTPClient: &http.Client{
 			Transport: tr,
 		},
-		Logger: log.New(os.Stderr, "Binance-golang ", log.LstdFlags),
+		Logger: log.New(os.Stderr, "bi-golang ", log.LstdFlags),
 	}
 }
 
 // NewFuturesClient initialize client for futures API
 func NewFuturesClient(apiKey, secretKey string) *futures.Client {
 	return futures.NewClient(apiKey, secretKey)
-}
-
-// NewFuturesProxiedClient initialize client for futures API
-func NewFuturesProxiedClient(apiKey, secretKey, proxyUrl string) *futures.Client {
-	return futures.NewProxiedClient(apiKey, secretKey, proxyUrl)
 }
 
 // NewDeliveryClient initialize client for coin-M futures API

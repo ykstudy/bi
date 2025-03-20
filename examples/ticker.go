@@ -4,8 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-
-	"bicore"
 )
 
 func Ticker() {
@@ -24,7 +22,6 @@ func Ticker() {
 	}
 
 	// futures ticker
-	futuresClient := binance.NewFuturesProxiedClient(ApiKey, Secret, ProxyUrl)
 	futuresTickers, err2 := futuresClient.NewListBookTickersService().Symbol("BTCUSDT").Do(context.Background())
 	if err2 != nil {
 		fmt.Println(err2)

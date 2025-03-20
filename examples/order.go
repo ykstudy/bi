@@ -29,7 +29,6 @@ func SpotOrder() {
 
 func FuturesOrder() {
 	futures.UseTestnet = true
-	futuresClient := binance.NewFuturesProxiedClient(ApiKey, Secret, ProxyUrl)
 
 	symbol := "LTCUSDT"
 	side := futures.SideTypeSell

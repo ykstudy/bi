@@ -3,8 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-
-	"bicore"
 )
 
 func Ohlcv() {
@@ -22,7 +20,6 @@ func Ohlcv() {
 	}
 
 	// futures ohlcv
-	futuresClient := binance.NewFuturesProxiedClient(ApiKey, Secret, ProxyUrl)
 	futuresOHLCV, err2 := futuresClient.NewKlinesService().Symbol("BTCUSDT").Interval("1m").Limit(5).Do(context.Background())
 	if err2 != nil {
 		fmt.Println(err2)

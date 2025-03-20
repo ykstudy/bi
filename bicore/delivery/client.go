@@ -191,9 +191,9 @@ func NewClient(apiKey, secretKey string) *Client {
 		SecretKey:  secretKey,
 		KeyType:    common.KeyTypeHmac,
 		BaseURL:    getApiEndpoint(),
-		UserAgent:  "Binance/golang",
+		UserAgent:  "bi/golang",
 		HTTPClient: http.DefaultClient,
-		Logger:     log.New(os.Stderr, "Binance-golang ", log.LstdFlags),
+		Logger:     log.New(os.Stderr, "bi-golang ", log.LstdFlags),
 	}
 }
 
@@ -211,11 +211,11 @@ func NewProxiedClient(apiKey, secretKey, proxyUrl string) *Client {
 		SecretKey: secretKey,
 		KeyType:   common.KeyTypeHmac,
 		BaseURL:   getApiEndpoint(),
-		UserAgent: "Binance/golang",
+		UserAgent: "bi/golang",
 		HTTPClient: &http.Client{
 			Transport: tr,
 		},
-		Logger: log.New(os.Stderr, "Binance-golang ", log.LstdFlags),
+		Logger: log.New(os.Stderr, "bi-golang ", log.LstdFlags),
 	}
 }
 
