@@ -1,0 +1,1 @@
+{"openTime":1744588800000,"open":"0.10000000","high":"0.89900000","low":"0.10000000","close":"0.23800000","volume":"876285661.20000000","closeTime":1745193599999,"quoteAssetVolume":"262940698.99058000","tradeNum":2218809,"takerBuyBaseAssetVolume":"423490302.20000000","takerBuyQuoteAssetVolume":"127646141.39960000"}

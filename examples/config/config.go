@@ -23,9 +23,9 @@ func NewConfig() *Config {
 	viper.AutomaticEnv() // 自动绑定环境变量
 
 	// 优先级覆盖示例
-	_ = viper.BindEnv("b.apiKey", "B_APIKEY")
-	_ = viper.BindEnv("b.secretKey", "B_SECRETKEY")
-	_ = viper.BindEnv("b.proxyUrl", "B_PROXYURL")
+	//_ = viper.BindEnv("b.apiKey", "B_APIKEY")
+	//_ = viper.BindEnv("b.secretKey", "B_SECRETKEY")
+	//_ = viper.BindEnv("b.proxyUrl", "B_PROXYURL")
 
 	if err := viper.ReadInConfig(); err != nil {
 		panic(err)

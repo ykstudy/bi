@@ -35,5 +35,6 @@ func main() {
 	//FuturesOrder()
 	//WalletBalance()
 	//Account()
-	//ExchangeInfo()
+	ExchangeInfo()
+	//Kline()
 }
